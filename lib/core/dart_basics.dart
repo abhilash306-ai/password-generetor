@@ -1,8 +1,6 @@
 /// Experiment 1: Dart Language Basics Reference & Core Models
 /// Contains foundational types, enums, and extension methods.
 
-import 'dart:math';
-
 /// Password Strength categories evaluated by entropy
 enum PasswordStrength {
   veryWeak,

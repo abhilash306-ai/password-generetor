@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
 import '../routes/app_routes.dart';
-import '../utils/responsive_container.dart';
+import '../widgets/responsive_container.dart';
 
 /// Experiment 4 & Exp 6b: Navigation and Theme Customization Screen
 class SettingsScreen extends StatelessWidget {

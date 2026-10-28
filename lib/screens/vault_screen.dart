@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../core/dart_basics.dart';
 import '../providers/vault_provider.dart';
-import '../utils/responsive_container.dart';
+import '../widgets/responsive_container.dart';
 import 'save_password_sheet.dart';
 
 /// Experiment 4, 5, & 7: Vault Screen with Search, Category Filter, and CRUD Operations

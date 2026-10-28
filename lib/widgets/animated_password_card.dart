@@ -133,42 +133,50 @@ class AnimatedPasswordCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildActionButton(
-                    context: context,
-                    icon: Icons.copy_rounded,
-                    label: 'Copy',
-                    color: theme.colorScheme.primary,
-                    onTap: () {
-                      Clipboard.setData(ClipboardData(text: password));
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Password copied to clipboard!'),
-                          duration: Duration(seconds: 2),
-                          behavior: SnackBarBehavior.floating,
-                        ),
-                      );
-                    },
+                  Expanded(
+                    child: _buildActionButton(
+                      context: context,
+                      icon: Icons.copy_rounded,
+                      label: 'Copy',
+                      color: theme.colorScheme.primary,
+                      onTap: () {
+                        Clipboard.setData(ClipboardData(text: password));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Password copied to clipboard!'),
+                            duration: Duration(seconds: 2),
+                            behavior: SnackBarBehavior.floating,
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                  _buildActionButton(
-                    context: context,
-                    icon: Icons.refresh_rounded,
-                    label: 'Generate',
-                    color: const Color(0xFF10B981),
-                    onTap: onRegenerate,
+                  Expanded(
+                    child: _buildActionButton(
+                      context: context,
+                      icon: Icons.refresh_rounded,
+                      label: 'Generate',
+                      color: const Color(0xFF10B981),
+                      onTap: onRegenerate,
+                    ),
                   ),
-                  _buildActionButton(
-                    context: context,
-                    icon: Icons.bookmark_add_rounded,
-                    label: 'Save',
-                    color: const Color(0xFFF59E0B),
-                    onTap: onSave,
+                  Expanded(
+                    child: _buildActionButton(
+                      context: context,
+                      icon: Icons.bookmark_add_rounded,
+                      label: 'Save',
+                      color: const Color(0xFFF59E0B),
+                      onTap: onSave,
+                    ),
                   ),
-                  _buildActionButton(
-                    context: context,
-                    icon: Icons.security_rounded,
-                    label: 'Audit API',
-                    color: const Color(0xFF8B5CF6),
-                    onTap: onAudit,
+                  Expanded(
+                    child: _buildActionButton(
+                      context: context,
+                      icon: Icons.security_rounded,
+                      label: 'Audit API',
+                      color: const Color(0xFF8B5CF6),
+                      onTap: onAudit,
+                    ),
                   ),
                 ],
               ),
@@ -226,12 +234,12 @@ class AnimatedPasswordCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(10),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(7),
               decoration: BoxDecoration(
                 color: color.withOpacity(0.12),
                 shape: BoxShape.circle,
@@ -241,8 +249,10 @@ class AnimatedPasswordCard extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 11,
                 fontWeight: FontWeight.w600,
                 color: color,
               ),

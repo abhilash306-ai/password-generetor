@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/breach_api_service.dart';
-import '../utils/responsive_container.dart';
+import '../widgets/responsive_container.dart';
 import '../widgets/gradient_button.dart';
 
 /// Experiment 9: Fetch data from a REST API and display in UI

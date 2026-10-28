@@ -74,12 +74,16 @@ class PasswordStrengthMeter extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Security Strength Analysis',
-                style: theme.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Text(
+                  'Strength Analysis',
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                 decoration: BoxDecoration(
@@ -123,20 +127,27 @@ class PasswordStrengthMeter extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                children: [
-                  Icon(Icons.timer_outlined, size: 14, color: isDark ? Colors.white60 : Colors.black54),
-                  const SizedBox(width: 4),
-                  Text(
-                    _crackTimeEstimate,
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: isDark ? Colors.white70 : Colors.black87,
-                      fontWeight: FontWeight.w500,
+              Expanded(
+                child: Row(
+                  children: [
+                    Icon(Icons.timer_outlined, size: 14, color: isDark ? Colors.white60 : Colors.black54),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: Text(
+                        _crackTimeEstimate,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: isDark ? Colors.white70 : Colors.black87,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+              const SizedBox(width: 8),
               Text(
                 entropy.toBitString(),
                 style: TextStyle(

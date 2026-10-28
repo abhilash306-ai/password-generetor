@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../core/dart_basics.dart';
 import '../providers/password_provider.dart';
 import '../routes/app_routes.dart';
 import '../utils/responsive_layout.dart';
@@ -87,7 +86,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDesktop = ResponsiveBreakpoints.isDesktop(context);
     final passwordProvider = Provider.of<PasswordProvider>(context);
 
     return Scaffold(
@@ -381,10 +379,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Password Length',
-                style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              Expanded(
+                child: Text(
+                  'Password Length',
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                ),
               ),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
@@ -423,9 +425,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('4 (Short)', style: TextStyle(fontSize: 11, color: isDark ? Colors.white54 : Colors.black45)),
-              Text('16 (Recommended)', style: TextStyle(fontSize: 11, color: isDark ? Colors.white54 : Colors.black45)),
-              Text('64 (Max)', style: TextStyle(fontSize: 11, color: isDark ? Colors.white54 : Colors.black45)),
+              Text('4 min', style: TextStyle(fontSize: 11, color: isDark ? Colors.white54 : Colors.black45)),
+              Text('16 default', style: TextStyle(fontSize: 11, color: isDark ? Colors.white54 : Colors.black45)),
+              Text('64 max', style: TextStyle(fontSize: 11, color: isDark ? Colors.white54 : Colors.black45)),
             ],
           ),
         ],

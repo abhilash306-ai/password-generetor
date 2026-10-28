@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/responsive_container.dart';
+import '../widgets/responsive_container.dart';
 
 /// Experiment 4 & Syllabus Mapping Screen
 /// Displays the 10 Prescribed Lab Experiments and how they are implemented.
@@ -154,7 +154,7 @@ class LabOverviewScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
-                  side: Border.all(
+                  side: BorderSide(
                     color: isDark ? Colors.white10 : Colors.black12,
                   ),
                 ),
